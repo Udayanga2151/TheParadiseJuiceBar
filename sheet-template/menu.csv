@@ -1,0 +1,42 @@
+Category,Category Sinhala,Name,Sinhala Name,Price,Large Price,Special,Sold Out,Show,Description,Ingredients,Benefits,Goals,Icon,Photo,Color Top,Color Bottom
+Fruit Juice,පලතුරු යුෂ,Dragon Fruit,ඩ්‍රැගන් ෆෘට්,350,,yes,no,yes,Bright pink dragon fruit blended fresh.,"Dragon fruit, Lime, Sugar syrup","Rich in antioxidants, Source of fibre, Supports immunity","Immunity, Skin",🐉,,#ff5fa2,#d6246e
+Fruit Juice,,Watermelon,කොමඩු,150,,no,no,yes,"Fresh watermelon juice, light and cooling.","Watermelon, Lime","Keeps you hydrated, Low in calories","Hydration, Skin",🍉,,#ff8a8a,#e8384f
+Fruit Juice,,Passion Fruit,පැෂන්,150,,no,no,yes,Sweet and tangy local passion fruit.,"Passion fruit, Sugar syrup, Water","Vitamin A and C, Rich in antioxidants",Immunity,,,#ffd25e,#e89a0c
+Fruit Juice,,Orange (Original),පැණි දොඩම,150,,no,no,yes,Made with sweet pani dodam oranges.,Sweet orange,"High in vitamin C, Supports immunity","Immunity, Energy",🍊,,#ffb547,#ff8a00
+Fruit Juice,,Orange (Normal),දොඩම (සාමාන්‍ය),120,,no,no,yes,Classic orange juice.,"Orange, Sugar syrup","Vitamin C boost, Refreshing",Immunity,🍊,,#ffc266,#f59a1b
+Fruit Juice,,Lime Juice,දෙහි,100,,no,no,yes,"Fresh lime, a simple thirst quencher.","Lime, Water, Sugar","Vitamin C, Aids digestion, Refreshing on hot days","Hydration, Digestion",🍋,,#e6f59a,#a8cf45
+Fruit Juice,,Lemon Juice,ලෙමන්,100,,no,no,yes,"Fresh lemon juice, bright and zesty.","Lemon, Water, Sugar","Vitamin C, Refreshing","Hydration, Immunity",🍋,,#fff59a,#f2d22e
+Fruit Juice,,Avocado,අලිපේර,250,,no,no,yes,"Creamy avocado juice, very filling.","Avocado, Milk, Sugar","Healthy fats, Keeps you full longer","Energy, Skin",🥑,,#c8e59a,#7fb04a
+Fruit Juice,,Mango,අඹ,200,,no,no,yes,Ripe mango blended smooth.,"Mango, Water, Sugar syrup","Vitamin A and C, Natural energy","Energy, Immunity",🥭,,#ffc93c,#ff9a1f
+Fruit Juice,,Pineapple,අන්නාසි,150,,no,no,yes,Tangy fresh pineapple juice.,"Pineapple, Sugar syrup","Supports digestion, Vitamin C","Digestion, Immunity",🍍,,#ffe36e,#f5b700
+Fruit Juice,,Butterfly Pea,නිල් කටරොළු,130,,no,no,yes,Blue butterfly pea flower drink with lime.,"Butterfly pea flower, Lime, Sugar","Rich in antioxidants, Caffeine free","Detox, Skin",🌸,,#7a8cff,#3846c9
+Fruit Juice,,Hibiscus,පොකුරු වදමල්,130,,no,no,yes,Ruby red hibiscus flower drink.,"Hibiscus flower, Lime, Sugar","Rich in antioxidants, Cooling","Detox, Hydration",🌺,,#ff6b8a,#b3123b
+Fruit Juice,,Nelli,නෙල්ලි,150,,no,no,yes,"Sri Lankan gooseberry, sharp and healthy.","Nelli, Water, Sugar","Very high in vitamin C, Supports immunity","Immunity, Detox",,,#e2f0a8,#a9c94f
+Fruit Juice,,Carrot,කැරට්,150,,no,no,yes,Fresh carrot juice.,"Carrot, Lime, Sugar","Rich in beta-carotene, Good for eyes and skin","Skin, Immunity",🥕,,#ffa45c,#f2701c
+Fruit Juice,,Aloe Vera,කෝමාරිකා,150,,no,no,yes,Cooling aloe vera drink.,"Aloe vera, Lime, Sugar","Soothing and cooling, Supports digestion","Detox, Digestion",🌿,,#dff5c9,#8fcf6a
+Fruit Juice,,Papaya,ගස්ලබු,150,,no,no,yes,"Sweet papaya, gentle on the stomach.","Papaya, Lime","Aids digestion, Vitamin C","Digestion, Skin",,,#ffb27a,#f2702c
+Fruit Juice,,Mix Fruit,මිශ්‍ර පලතුරු,150,,no,no,yes,A blend of seasonal fruits.,"Seasonal fruits, Sugar syrup","Mix of vitamins, Natural energy","Energy, Immunity",🍹,,#ffb0c0,#f2643c
+Fruit Juice,,Wood Apple,දිවුල්,150,,no,no,yes,Classic Sri Lankan divul juice.,"Wood apple, Jaggery, Water","Good for digestion, Cooling on hot days","Digestion, Hydration",,,#c9955a,#8a5a2b
+Fruit Juice,,Soursop,කටු අනෝදා,150,,no,no,yes,"Creamy, sweet-sour soursop juice.","Soursop, Sugar, Water","Vitamin C, Source of fibre","Immunity, Digestion",,,#f4f6ea,#d6dcc0
+Fruit Juice,,Kirala,කිරල,150,,no,no,yes,"Tangy kirala fruit juice, a local favourite.","Kirala, Sugar, Water","Refreshing and tangy, Source of vitamin C","Hydration, Immunity",,,#e7f1b0,#b5c95a
+Milk Shakes,මිල්ක් ෂේක්,Milk Shake (Chocolate),මිල්ක් ෂේක් (චොකලට්),250,,no,no,yes,Thick chocolate milk shake.,"Milk, Chocolate, Ice cream","Quick energy, Calcium from milk",Energy,🍫,,#a9744f,#5c3620
+Milk Shakes,,Milk Shake (Faluda),මිල්ක් ෂේක් (ෆලූඩා),250,,no,no,yes,Rose faluda flavoured milk shake.,"Milk, Rose syrup, Ice cream","Calcium from milk, Cooling",Energy,🌹,,#ffc2d6,#ff6f9f
+Milk Shakes,,Milk Shake (Vanilla),මිල්ක් ෂේක් (වැනිලා),250,,no,no,yes,Classic vanilla milk shake.,"Milk, Vanilla ice cream",Calcium from milk,Energy,🍦,,#fff3d6,#f0d9a0
+Milk Shakes,,Milk Shake (Mango),මිල්ක් ෂේක් (අඹ),300,,no,no,yes,Ripe mango blended with milk and ice cream.,"Mango, Milk, Ice cream","Vitamin A, Calcium from milk",Energy,🥭,,#ffd36b,#ffa62b
+Milk Shakes,,Milk Shake (Avocado),මිල්ක් ෂේක් (අලිපේර),350,,no,no,yes,Creamy avocado milk shake.,"Avocado, Milk, Ice cream","Healthy fats, Very filling","Energy, Skin",🥑,,#d4ecaa,#8dbb55
+Milk Shakes,,Milk Shake (Banana),මිල්ක් ෂේක් (කෙසෙල්),250,,no,no,yes,Banana milk shake.,"Banana, Milk, Ice cream","Potassium, Quick energy",Energy,🍌,,#fff0b0,#f2cf5b
+Milk Shakes,,Milk Shake (Milo),මිල්ක් ෂේක් (මයිලෝ),250,,no,no,yes,Milo malt chocolate milk shake.,"Milo, Milk, Ice cream","Quick energy, Calcium from milk",Energy,🥤,,#b88a64,#6e4428
+Lassi,ලස්සි,Mango Lassi,අඹ ලස්සි,400,,yes,no,yes,Yoghurt blended with ripe mango.,"Yoghurt, Mango, Sugar","Probiotic yoghurt, Vitamin A","Digestion, Energy",🥭,,#ffd77a,#ffad33
+Lassi,,Avocado Lassi,අලිපේර ලස්සි,450,,no,no,yes,Yoghurt blended with creamy avocado.,"Yoghurt, Avocado, Sugar","Probiotic yoghurt, Healthy fats","Digestion, Skin",🥑,,#d9efb4,#93c062
+Lassi,,Vanilla Lassi,වැනිලා ලස්සි,350,,no,no,yes,Smooth sweet vanilla lassi.,"Yoghurt, Vanilla, Sugar",Probiotic yoghurt,Digestion,,,#fff6e0,#efdcae
+Lassi,,Chocolate Lassi,චොකලට් ලස්සි,400,,no,no,yes,Yoghurt with chocolate.,"Yoghurt, Chocolate, Sugar","Probiotic yoghurt, Quick energy","Digestion, Energy",🍫,,#b88a64,#6e4428
+Lassi,,Strawberry Lassi,ස්ට්‍රෝබෙරි ලස්සි,350,,no,no,yes,Yoghurt blended with strawberry.,"Yoghurt, Strawberry, Sugar","Probiotic yoghurt, Antioxidants","Digestion, Skin",🍓,,#ffb3c6,#f06292
+Lassi,,Banana Lassi,කෙසෙල් ලස්සි,350,,no,no,yes,Yoghurt blended with banana.,"Yoghurt, Banana, Sugar","Probiotic yoghurt, Potassium","Digestion, Energy",🍌,,#fff0b0,#f2cf5b
+Lassi,,Passion Lassi,පැෂන් ලස්සි,350,,no,no,yes,Yoghurt with tangy passion fruit.,"Yoghurt, Passion fruit, Sugar","Probiotic yoghurt, Vitamin C","Digestion, Immunity",,,#ffe08a,#f0b323
+Bubble Tea,බබල් ටී,Vanilla Bubble Tea,වැනිලා,350,,no,no,yes,Vanilla milk tea with chewy tapioca pearls.,"Tea, Milk, Vanilla, Tapioca pearls",A sweet treat,Energy,🧋,,#f6ead2,#d9bf8c
+Bubble Tea,,Chocolate Bubble Tea,චොකලට්,450,,no,no,yes,Chocolate milk tea with tapioca pearls.,"Tea, Milk, Chocolate, Tapioca pearls",Quick energy,Energy,🧋,,#b88a64,#6e4428
+Bubble Tea,,Faluda Bubble Tea,ෆලූඩා,450,,yes,no,yes,Rose faluda milk tea with tapioca pearls.,"Tea, Milk, Rose syrup, Tapioca pearls",A sweet treat,Energy,🧋,,#ffc2d6,#ff6f9f
+Bubble Tea,,Coffee Bubble Tea,කෝපි,450,,no,no,yes,Coffee milk drink with tapioca pearls.,"Coffee, Milk, Tapioca pearls",Caffeine boost,Energy,🧋,,#c9a27e,#7a4f2e
+Ice Cream,අයිස්ක්‍රීම්,Imorich Ice Cream with Banana,අයිස්ක්‍රීම් කෙසෙල් එක්ක,250,,no,no,yes,Imorich ice cream served with fresh banana.,"Imorich ice cream, Banana","A cool treat, Potassium from banana",Energy,🍨,,#fff3c4,#f2cf5b
+Ice Cream,,Imorich Ice Cream with Mango,අයිස්ක්‍රීම් අඹ එක්ක,300,,no,no,yes,Imorich ice cream served with ripe mango.,"Imorich ice cream, Mango","A cool treat, Vitamin A from mango",Energy,🍨,,#ffd36b,#ffa62b
+Ice Cream,,Imorich Ice Cream with Mix Fruit,අයිස්ක්‍රීම් මිශ්‍ර පලතුරු එක්ක,250,,no,no,yes,Imorich ice cream served with mixed fruit.,"Imorich ice cream, Mixed fruit","A cool treat, Vitamins from fruit",Energy,🍨,,#ffc2d6,#f2643c

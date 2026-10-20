@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thumb-zone buttons demo</title>
+<style>
+  /* 1. Colours: change these for any other site */
+  :root { --ink: #3b0a1c; --bg: #fff8fa; --card: #ffffff; --accent: #e11d48; --accent-2: #ff5c8d; --muted: #8c5868; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; padding: 16px 16px 140px; font: 16px/1.5 system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+  section { min-height: 70vh; scroll-margin-top: 16px; }
+  button { font: inherit; cursor: pointer; }
+
+  /* 2. The fixed corner: bottom-right, above the phone's home bar */
+  .fabs {
+    position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 40;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+    pointer-events: none;                 /* empty space in the corner does not block taps */
+  }
+  .fabs > * { pointer-events: auto; }     /* but the buttons themselves do */
+  .fab-row { display: flex; align-items: center; gap: 10px; }
+
+  /* 3. Round Menu button: 64px is easy to hit with a thumb */
+  .fab-menu {
+    width: 64px; height: 64px; border-radius: 50%; border: 0;
+    background: var(--ink); color: #fff; box-shadow: 0 12px 30px -12px rgba(0,0,0,.4);
+    font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+
+  /* 4. Cart pill: sits left of Menu, shows count + total */
+  .fab-cart {
+    display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 20px; border-radius: 999px; border: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-weight: 700;
+    box-shadow: 0 12px 30px -12px rgba(0,0,0,.4);
+  }
+  .fab-cart .count { min-width: 22px; height: 22px; border-radius: 999px; background: #fff; color: var(--accent); display: grid; place-items: center; font-size: .8rem; }
+  .fab-cart.bump { animation: bump .35s ease; }
+  @keyframes bump { 40% { transform: scale(1.08); } }
+
+  /* 5. Speed-dial list: opens upward, right-aligned, items rise in one by one */
+  .dial { display: grid; justify-items: end; gap: 8px; max-height: calc(100dvh - 140px); overflow-y: auto; }
+  .dial button {
+    border: 0; padding: 12px 18px; border-radius: 999px; background: var(--card); color: var(--ink); font-weight: 700;
+    box-shadow: 0 12px 30px -12px rgba(0,0,0,.4); animation: rise .22s ease both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+
+  /* 6. Dim layer behind the open dial; a tap on it closes the dial */
+  .scrim { position: fixed; inset: 0; z-index: 30; background: rgba(8,14,10,.25); }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+  <h1>Thumb-zone buttons</h1>
+  <button type="button" id="addBtn">Add a drink (Rs. 450)</button>
+  <section id="juices"><h2>Fresh Juices</h2></section>
+  <section id="smoothies"><h2>Smoothies</h2></section>
+  <section id="shakes"><h2>Milkshakes</h2></section>
+
+  <div class="scrim" id="scrim" hidden></div>
+
+  <div class="fabs">
+    <div class="dial" id="dial" hidden>
+      <!-- Listed bottom-up, so the first section ends up closest to the thumb -->
+      <button type="button" data-jump="shakes" style="animation-delay:0ms">Milkshakes</button>
+      <button type="button" data-jump="smoothies" style="animation-delay:30ms">Smoothies</button>
+      <button type="button" data-jump="juices" style="animation-delay:60ms">Fresh Juices</button>
+    </div>
+    <div class="fab-row">
+      <button type="button" class="fab-cart" id="cartBtn" hidden aria-label="View your order">
+        <span class="count" id="cartCount">0</span><span id="cartTotal"></span>
+      </button>
+      <button type="button" class="fab-menu" id="menuBtn" aria-expanded="false" aria-controls="dial">Menu</button>
+    </div>
+  </div>
+
+<script>
+  var dial = document.getElementById("dial"), menuBtn = document.getElementById("menuBtn"), scrim = document.getElementById("scrim");
+  var count = 0, total = 0;
+
+  // Open or close the speed dial. aria-expanded tells screen readers the state.
+  function toggleDial(open) {
+    open = open == null ? dial.hidden : open;
+    dial.hidden = !open;
+    scrim.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? "Close" : "Menu";
+  }
+  menuBtn.addEventListener("click", function () { toggleDial(); });
+  scrim.addEventListener("click", function () { toggleDial(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") toggleDial(false); });
+
+  // Tap a dial item: close the dial and scroll to that section.
+  dial.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-jump]");
+    if (!b) return;
+    toggleDial(false);
+    document.getElementById(b.dataset.jump).scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // Cart pill stays hidden until something is added, then bumps on every add.
+  document.getElementById("addBtn").addEventListener("click", function () {
+    count += 1; total += 450;
+    var btn = document.getElementById("cartBtn");
+    btn.hidden = false;
+    document.getElementById("cartCount").textContent = count;
+    document.getElementById("cartTotal").textContent = "Rs. " + total.toLocaleString("en-US");
+    btn.classList.remove("bump"); void btn.offsetWidth; btn.classList.add("bump"); // restart the animation
+  });
+</script>
+</body>
+</html>
