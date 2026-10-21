@@ -1,23 +1,24 @@
 /* Layout: one narrow menu column, sticky category rail, actions parked bottom-right for the thumb.
-   Palette: white base, rose-red and pink accents, deep berry ink. */
+   Palette: black, white and pink. Light mode uses a soft grey base so white cards stand out
+   without glare; dark mode uses near-black with brighter pink so text stays readable. */
 :root {
-  --bg: #fff8fa;          /* pink-tinted white */
-  --surface: #ffffff;
-  --surface-2: #ffeef3;
-  --ink: #3b0a1c;         /* deep berry */
-  --muted: #8c5868;
-  --line: #f7d6df;
-  --accent: #e11d48;      /* rose red */
-  --accent-2: #ff5c8d;    /* pink */
-  --accent-ink: #ffffff;
-  --leaf: #c2185b;        /* tags and benefit checks */
-  --leaf-soft: #ffe3ec;
-  --hero-1: #e11d48;
-  --hero-2: #ff6b9a;
+  --bg: #f3f0f1;          /* soft grey-white page */
+  --surface: #ffffff;     /* cards */
+  --surface-2: #fbe9f0;   /* light pink fills */
+  --ink: #16121a;         /* near-black text */
+  --muted: #6c6268;
+  --line: #e6dde1;
+  --accent: #d6246e;      /* pink: buttons, prices */
+  --accent-2: #e0367f;    /* lighter pink: gradient end */
+  --accent-ink: #ffffff;  /* text on pink buttons */
+  --leaf: #b0185a;        /* tags and benefit checks */
+  --leaf-soft: #fde3ee;
+  --hero-1: #16121a;      /* header: black */
+  --hero-2: #3d1529;      /* header: black to deep berry */
   --hero-ink: #ffffff;
   --wa: #1c9c50;
   --warn: #b4232a;
-  --shadow: 0 12px 30px -12px rgba(150, 20, 60, .35);
+  --shadow: 0 12px 30px -14px rgba(22, 18, 26, .35);
   --font-display: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
   --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   --r-lg: 22px;
@@ -26,18 +27,18 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1a0a10; --surface: #251018; --surface-2: #331520; --ink: #fff0f4; --muted: #d9a5b5;
-    --line: #47202d; --accent: #ff4d6d; --accent-2: #ff7aa2; --accent-ink: #ffffff; --leaf: #ff8fb3; --leaf-soft: #3f1727;
-    --hero-1: #b3123b; --hero-2: #e0457a; --hero-ink: #ffffff;
-    --wa: #2bbf66; --warn: #ff8a8a; --shadow: 0 12px 30px -12px rgba(0, 0, 0, .7);
+    --bg: #0e0c0f; --surface: #1a171c; --surface-2: #2a1a23; --ink: #f7f2f5; --muted: #b5a9b0;
+    --line: #2f2930; --accent: #ff5c9e; --accent-2: #ff8ab8; --accent-ink: #16121a; --leaf: #ff8ab8; --leaf-soft: #3a1a2a;
+    --hero-1: #1f1a21; --hero-2: #4a1832; --hero-ink: #ffffff;
+    --wa: #2bbf66; --warn: #ff8a8a; --shadow: 0 12px 30px -12px rgba(0, 0, 0, .8);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #1a0a10; --surface: #251018; --surface-2: #331520; --ink: #fff0f4; --muted: #d9a5b5;
-  --line: #47202d; --accent: #ff4d6d; --accent-2: #ff7aa2; --accent-ink: #ffffff; --leaf: #ff8fb3; --leaf-soft: #3f1727;
-  --hero-1: #b3123b; --hero-2: #e0457a; --hero-ink: #ffffff;
-  --wa: #2bbf66; --warn: #ff8a8a; --shadow: 0 12px 30px -12px rgba(0, 0, 0, .7);
+  --bg: #0e0c0f; --surface: #1a171c; --surface-2: #2a1a23; --ink: #f7f2f5; --muted: #b5a9b0;
+  --line: #2f2930; --accent: #ff5c9e; --accent-2: #ff8ab8; --accent-ink: #16121a; --leaf: #ff8ab8; --leaf-soft: #3a1a2a;
+  --hero-1: #1f1a21; --hero-2: #4a1832; --hero-ink: #ffffff;
+  --wa: #2bbf66; --warn: #ff8a8a; --shadow: 0 12px 30px -12px rgba(0, 0, 0, .8);
   color-scheme: dark;
 }
 

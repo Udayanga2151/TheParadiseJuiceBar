@@ -440,11 +440,15 @@
     if (t.id === "cartBtn") { renderCart(); return showSheet($("cartSheet")); }
     if (t.id === "menuBtn") return toggleDial();
     if (t.id === "clearFilters") { filter = { q: "", goal: null }; $("search").value = ""; $("specials").hidden = false; $("goals").hidden = false; renderGoals(); renderMenu(); return; }
-    if (t.id === "waBtn") { toast("Opening WhatsApp…"); }
+    if (t.id === "waBtn") {
+      toast("Order sent to WhatsApp. Tap Send there ✓");
+      // The WhatsApp link already carries the order, so empty the cart for the next customer.
+      setTimeout(function () { cart = []; save(); renderCartButton(); hideSheet(); }, 800);
+    }
   });
 
   $("scrim").addEventListener("click", function () {
-    if (this.dataset.for === "dial") toggleDial(false); else hideSheet();
+    if (this.dataset.for === "dial") toggleDial(false); else hideSheet();s
   });
 
   document.addEventListener("change", function (e) {
