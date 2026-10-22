@@ -99,6 +99,32 @@
     }).join("");
   }
 
+  // Arrows for the specials row. Phones swipe, so the arrows only appear on wide screens
+  // (or any mouse screen) when there are more specials than fit, and each hides at its end.
+  var spRow = $("specials"), spPrev = $("spPrev"), spNext = $("spNext");
+  var wideOrMouse = window.matchMedia("(min-width: 720px), (hover: hover) and (pointer: fine)");
+  function updateSpArrows() {
+    if (!spPrev || !spNext) return;
+    var show = wideOrMouse.matches && !spRow.hidden && spRow.scrollWidth > spRow.clientWidth + 4;
+    spPrev.hidden = spNext.hidden = !show;
+    if (!show) return;
+    spPrev.disabled = spRow.scrollLeft < 8;
+    spNext.disabled = spRow.scrollLeft + spRow.clientWidth > spRow.scrollWidth - 8;
+  }
+  function slideSpecials(dir) {
+    var card = spRow.querySelector(".special");
+    var step = card ? card.offsetWidth + 12 : spRow.clientWidth * 0.8;
+    spRow.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
+  if (spPrev && spNext) {
+    spPrev.addEventListener("click", function () { slideSpecials(-1); });
+    spNext.addEventListener("click", function () { slideSpecials(1); });
+    spRow.addEventListener("scroll", updateSpArrows, { passive: true });
+    window.addEventListener("resize", updateSpArrows);
+    // Fonts load after the first paint and change the card widths, so check again then.
+    window.addEventListener("load", updateSpArrows);
+  }
+
   /* ---------- Goals ---------- */
   function renderGoals() {
     var goals = ["All"].concat(DATA.goals || []);
@@ -448,7 +474,7 @@
   });
 
   $("scrim").addEventListener("click", function () {
-    if (this.dataset.for === "dial") toggleDial(false); else hideSheet();s
+    if (this.dataset.for === "dial") toggleDial(false); else hideSheet();
   });
 
   document.addEventListener("change", function (e) {
@@ -693,6 +719,7 @@
   function renderAll() {
     renderHeader();
     renderSpecials();
+    updateSpArrows();
     renderGoals();
     renderMenu();
     renderFooter();

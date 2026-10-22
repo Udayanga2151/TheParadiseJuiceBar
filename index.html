@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#16121a">
+<meta name="theme-color" content="#050506">
+<meta name="color-scheme" content="only dark">
 <meta name="description" content="Menu and prices of The Paradise Juice Bar. Order on WhatsApp.">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
@@ -40,7 +41,11 @@
     </label>
   </header>
 
-  <section class="specials" id="specials" aria-label="Today's specials"></section>
+  <div class="specials-wrap">
+    <section class="specials" id="specials" aria-label="Today's specials"></section>
+    <button type="button" class="sp-arrow prev" id="spPrev" aria-label="Previous special" hidden>‹</button>
+    <button type="button" class="sp-arrow next" id="spNext" aria-label="Next special" hidden>›</button>
+  </div>
 
   <div class="goals" id="goals" role="group" aria-label="Filter by health goal"></div>
 

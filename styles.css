@@ -1,45 +1,40 @@
 /* Layout: one narrow menu column, sticky category rail, actions parked bottom-right for the thumb.
-   Palette: black, white and pink. Light mode uses a soft grey base so white cards stand out
-   without glare; dark mode uses near-black with brighter pink so text stays readable. */
+   Palette "Black glass": true black with pink and red light, frosted cards inspired by iPhone
+   notifications, pink/red buttons. One dark look on every device. */
 :root {
-  --bg: #f3f0f1;          /* soft grey-white page */
-  --surface: #ffffff;     /* cards */
-  --surface-2: #fbe9f0;   /* light pink fills */
-  --ink: #16121a;         /* near-black text */
-  --muted: #6c6268;
-  --line: #e6dde1;
-  --accent: #d6246e;      /* pink: buttons, prices */
-  --accent-2: #e0367f;    /* lighter pink: gradient end */
-  --accent-ink: #ffffff;  /* text on pink buttons */
-  --leaf: #b0185a;        /* tags and benefit checks */
-  --leaf-soft: #fde3ee;
-  --hero-1: #16121a;      /* header: black */
-  --hero-2: #3d1529;      /* header: black to deep berry */
+  color-scheme: dark;     /* one dark look on every phone */
+  --bg: #050506;          /* true black page */
+  --surface: rgba(28, 28, 30, .78);      /* frosted panels: search, rail, sheets (Apple dark gray) */
+  --surface-2: #2c2c2e;   /* raised fills */
+  --ink: #f5f5f7;         /* Apple white text */
+  --muted: #a1a1a6;
+  --line: rgba(255, 255, 255, .10);
+  --accent: #e11d48;      /* rose red: buttons */
+  --accent-2: #ff375f;    /* Apple pink: gradient end */
+  --accent-ink: #ffffff;  /* text on buttons */
+  --leaf: #ff8fab;        /* pink tags and benefit checks */
+  --leaf-soft: rgba(255, 55, 95, .16);
+  --hero-1: #1c1c1e;      /* header card: black glass */
+  --hero-2: #4a0d24;      /* to deep wine */
   --hero-ink: #ffffff;
-  --wa: #1c9c50;
-  --warn: #b4232a;
-  --shadow: 0 12px 30px -14px rgba(22, 18, 26, .35);
+  --sp-1: #be123c;        /* special offer cards: red */
+  --sp-2: #ff375f;        /* to pink */
+  --wa: #198a43;          /* WhatsApp green, dark enough for white text */
+  --warn: #ff6961;
+  --shadow: 0 18px 44px -20px rgba(0, 0, 0, .9);
+  --glass-border: rgba(255, 255, 255, .10);
+  --card: rgba(44, 44, 46, .55);         /* frosted menu cards, like an iPhone notification */
+  --card-line: rgba(255, 255, 255, .08);
+  --card-shadow: 0 10px 30px -18px rgba(0, 0, 0, .9);
+  --glow-1: rgba(255, 55, 95, .22);      /* pink light behind the glass */
+  --glow-2: rgba(255, 69, 58, .12);      /* red light */
+  --glow-3: rgba(255, 255, 255, .05);    /* white light */
+  --dots: rgba(255, 255, 255, .10);      /* particle dots */
   --font-display: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
-  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Figtree", system-ui, "Segoe UI", sans-serif;
   --r-lg: 22px;
   --r-md: 16px;
   --r-sm: 12px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e0c0f; --surface: #1a171c; --surface-2: #2a1a23; --ink: #f7f2f5; --muted: #b5a9b0;
-    --line: #2f2930; --accent: #ff5c9e; --accent-2: #ff8ab8; --accent-ink: #16121a; --leaf: #ff8ab8; --leaf-soft: #3a1a2a;
-    --hero-1: #1f1a21; --hero-2: #4a1832; --hero-ink: #ffffff;
-    --wa: #2bbf66; --warn: #ff8a8a; --shadow: 0 12px 30px -12px rgba(0, 0, 0, .8);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0e0c0f; --surface: #1a171c; --surface-2: #2a1a23; --ink: #f7f2f5; --muted: #b5a9b0;
-  --line: #2f2930; --accent: #ff5c9e; --accent-2: #ff8ab8; --accent-ink: #16121a; --leaf: #ff8ab8; --leaf-soft: #3a1a2a;
-  --hero-1: #1f1a21; --hero-2: #4a1832; --hero-ink: #ffffff;
-  --wa: #2bbf66; --warn: #ff8a8a; --shadow: 0 12px 30px -12px rgba(0, 0, 0, .8);
-  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -54,6 +49,20 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 body.locked { overflow: hidden; }
+/* Fixed glows and a faint particle-dot field behind the page; the see-through cards pick them up. */
+body::before, body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+body::before {
+  background:
+    radial-gradient(70% 45% at 100% 0%, var(--glow-1), transparent 70%),
+    radial-gradient(60% 40% at 0% 50%, var(--glow-2), transparent 70%),
+    radial-gradient(60% 40% at 100% 100%, var(--glow-3), transparent 70%);
+}
+body::after {
+  background-image: radial-gradient(var(--dots) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(160deg, #000 0%, transparent 45%, transparent 60%, #000 100%);
+  mask-image: linear-gradient(160deg, #000 0%, transparent 45%, transparent 60%, #000 100%);
+}
 button, input, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
@@ -65,12 +74,12 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 /* Header */
 .top {
   position: relative; overflow: hidden; display: grid; gap: 14px;
-  padding: 20px 18px 18px; border-radius: 28px; color: var(--hero-ink);
+  padding: 20px 18px 18px; border: 1px solid var(--glass-border); border-radius: 28px; color: var(--hero-ink);
   background:
-    radial-gradient(circle at 92% 8%, rgba(255,255,255,.28) 0 70px, transparent 71px),
-    radial-gradient(circle at 78% 110%, rgba(255,255,255,.16) 0 90px, transparent 91px),
+    radial-gradient(circle at 92% 8%, rgba(255,255,255,.24) 0 70px, transparent 71px),
+    radial-gradient(circle at 78% 110%, rgba(255,255,255,.12) 0 90px, transparent 91px),
     linear-gradient(140deg, var(--hero-1), var(--hero-2));
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow); isolation: isolate;
 }
 .brand { display: flex; align-items: center; gap: 14px; }
 .logo {
@@ -100,34 +109,51 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 
 .search {
   display: flex; align-items: center; gap: 10px;
-  background: var(--surface); color: var(--ink); border: 0; border-radius: var(--r-md);
-  padding: 0 14px; min-height: 52px; box-shadow: 0 6px 18px -8px rgba(80, 0, 30, .45);
+  background: var(--surface); color: var(--ink); border: 1px solid var(--glass-border); border-radius: var(--r-md);
+  padding: 0 14px; min-height: 52px; box-shadow: 0 8px 20px -12px rgba(0, 0, 0, .6);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
 }
-.search:focus-within { box-shadow: 0 0 0 3px rgba(255,255,255,.7); }
+.search:focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 32%, transparent); }
 .search svg { width: 20px; height: 20px; color: var(--muted); flex: none; }
 .search input { flex: 1; min-width: 0; border: 0; background: none; outline: none; padding: 12px 0; font-size: 1rem; }
 .search input::placeholder { color: var(--muted); }
 
 /* Specials */
-.specials { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 22px -16px 0; padding: 0 16px 4px; scrollbar-width: none; }
+.specials { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; margin: 22px -16px 0; padding: 0 16px 4px; scrollbar-width: none; }
 .specials::-webkit-scrollbar { display: none; }
 .specials:empty { display: none; }
+/* Arrow buttons for the specials row: shown by app.js only when the row overflows on a mouse screen. */
+.specials-wrap { position: relative; }
+.sp-arrow {
+  position: absolute; top: calc(50% + 11px); transform: translateY(-50%); z-index: 3;
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--glass-border); background: rgba(44, 44, 46, .85); color: var(--ink); box-shadow: var(--shadow);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  transition: opacity .2s, transform .15s;
+  font-size: 28px; line-height: 1;
+}
+.sp-arrow svg { width: 22px; height: 22px; stroke-width: 2.4; }
+.sp-arrow.prev { left: -6px; }
+.sp-arrow.next { right: -6px; }
+.sp-arrow:disabled { opacity: 0; pointer-events: none; }
+.sp-arrow:active { transform: translateY(-50%) scale(.92); }
+.specials[hidden] ~ .sp-arrow, .specials:empty ~ .sp-arrow { display: none; }
 .special {
   scroll-snap-align: start; flex: 0 0 min(86%, 420px);
   position: relative; display: grid; grid-template-columns: 1fr 112px; gap: 12px; align-items: center;
-  padding: 18px; border-radius: var(--r-lg); border: 0; text-align: left;
-  color: #1b1206;
+  padding: 18px; border-radius: var(--r-lg); text-align: left;
+  color: #ffffff;
   background:
-    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--c1) 85%, #fff) 0%, transparent 60%),
-    linear-gradient(135deg, var(--c1), var(--c2));
-  box-shadow: var(--shadow);
+    radial-gradient(120% 140% at 100% 0%, rgba(255, 255, 255, .22) 0%, transparent 55%),
+    linear-gradient(135deg, var(--sp-1), var(--sp-2));
+  border: 1px solid rgba(255, 255, 255, .35); box-shadow: var(--shadow);
 }
 .special .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
 .special .eyebrow, .special .sp-name, .special .sp-desc { display: block; }
 .special .sp-name { font: 800 1.45rem/1.1 var(--font-display); margin-top: 4px; letter-spacing: -.01em; }
 .special .sp-desc { margin: 6px 0 12px; font-size: .9rem; opacity: .85; }
-.special .pill { display: inline-flex; gap: 6px; align-items: center; background: rgba(255,255,255,.85); color: #1b1206; padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: .9rem; }
-.special .art { background: rgba(255,255,255,.28); }
+.special .pill { display: inline-flex; gap: 6px; align-items: center; background: #ffffff; color: #be123c; padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: .9rem; }
+.special .art { background: rgba(255, 255, 255, .18); }
 
 /* Goal filter */
 .goals { display: flex; gap: 8px; overflow-x: auto; margin: 22px -16px 0; padding: 0 16px 2px; scrollbar-width: none; }
@@ -143,8 +169,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
   position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
   display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
   margin: 14px -16px 0; padding: 10px 16px;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter: blur(18px) saturate(1.35); -webkit-backdrop-filter: blur(18px) saturate(1.35);
   border-bottom: 1px solid transparent; transition: border-color .2s;
 }
 .cats.stuck { border-bottom-color: var(--line); }
@@ -152,6 +178,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .cat {
   flex: none; border: 0; background: none; padding: 9px 14px; border-radius: 999px;
   font-weight: 600; font-size: .92rem; color: var(--muted); white-space: nowrap;
+  transition: color .18s ease, background .18s ease;
 }
 .cat.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); }
 
@@ -162,12 +189,16 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .section-head .si { color: var(--muted); font-size: .9rem; }
 .list { display: grid; gap: 10px; }
 
+/* Glass cards. No backdrop blur here: 41 blurred cards slow scrolling on cheap phones,
+   and over the smooth glow background the blur would not show anyway. */
 .card {
   position: relative; display: grid; grid-template-columns: 80px minmax(0, 1fr) auto; gap: 14px; align-items: center;
-  padding: 10px 12px 10px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
-  transition: transform .15s ease, box-shadow .15s ease;
+  padding: 10px 12px 10px 10px; border: 1px solid var(--card-line); border-radius: var(--r-lg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .06), transparent 40%), var(--card);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), var(--card-shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.card:hover { box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 28%, var(--card-line)); }
 .card:active { transform: scale(.99); }
 .card-open { position: absolute; inset: 0; z-index: 1; border: 0; background: none; border-radius: inherit; }
 .card-body { min-width: 0; }
@@ -193,7 +224,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .art {
   position: relative; width: 100%; aspect-ratio: 1; max-width: 100%;
   border-radius: 18px; overflow: hidden; display: block;
-  background: color-mix(in srgb, var(--c1) 24%, var(--surface));
+  background: color-mix(in srgb, var(--c1) 18%, var(--surface-2));
 }
 .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .art .straw {
@@ -223,7 +254,11 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .empty p { margin: 0 0 14px; }
 .btn-ghost { border: 1px solid var(--line); background: var(--surface); padding: 10px 16px; border-radius: 999px; font-weight: 600; }
 
-.foot { margin-top: 40px; padding: 22px; border-radius: var(--r-lg); background: var(--surface-2); display: grid; gap: 10px; font-size: .92rem; }
+.foot {
+  margin-top: 40px; padding: 22px; border: 1px solid var(--line); border-radius: var(--r-lg);
+  background: color-mix(in srgb, var(--surface-2) 84%, transparent); display: grid; gap: 10px; font-size: .92rem;
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+}
 .foot h2 { font-size: 1.15rem; font-weight: 800; }
 .foot p { margin: 0; color: var(--muted); }
 .foot-links { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -259,7 +294,9 @@ a.credit-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 22px -10px 
   position: relative; width: 64px; height: 64px; border-radius: 50%; border: 0;
   background: var(--ink); color: var(--bg); box-shadow: var(--shadow);
   display: grid; place-items: center; align-content: center; gap: 1px;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
+.fab-menu:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px color-mix(in srgb, var(--accent) 42%, transparent); }
 .fab-menu svg { width: 24px; height: 24px; }
 .fab-menu .fab-label { font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .fab-menu .i-close { display: none; }
@@ -269,7 +306,9 @@ a.credit-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 22px -10px 
   display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 20px 0 16px; border-radius: 999px; border: 0;
   background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); font-weight: 700; box-shadow: var(--shadow);
   font-variant-numeric: tabular-nums;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
+.fab-cart:hover { transform: translateY(-2px); }
 .fab-cart svg { width: 22px; height: 22px; }
 .fab-cart .count { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: #ffffff; color: var(--accent); font-size: .8rem; display: grid; place-items: center; }
 .fab-cart.bump { animation: bump .35s ease; }
@@ -287,13 +326,14 @@ a.credit-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 22px -10px 
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
 
 /* Scrim + sheets */
-.scrim { position: fixed; inset: 0; z-index: 30; background: rgba(8, 14, 10, .45); animation: fade .2s ease; }
-.scrim.light { background: rgba(8, 14, 10, .25); }
+.scrim { position: fixed; inset: 0; z-index: 30; background: rgba(0, 0, 0, .55); animation: fade .2s ease; }
+.scrim.light { background: rgba(0, 0, 0, .35); }
 @keyframes fade { from { opacity: 0; } }
 .sheet {
   position: fixed; z-index: 50; left: 0; right: 0; bottom: 0; margin-inline: auto; width: 100%; max-width: 680px;
   max-height: 92dvh; display: flex; flex-direction: column;
-  background: var(--surface); border-radius: 26px 26px 0 0; box-shadow: 0 -10px 40px -10px rgba(0,0,0,.35);
+  background: var(--surface); border: 1px solid var(--line); border-bottom: 0; border-radius: 26px 26px 0 0;
+  box-shadow: 0 -10px 40px -10px rgba(0,0,0,.35); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
   animation: slide .28s cubic-bezier(.2, .9, .25, 1);
 }
 .sheet.closing { animation: slide-out .18s ease forwards; }
@@ -384,7 +424,10 @@ a.credit-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 22px -10px 
 .toast {
   position: fixed; z-index: 60; left: 50%; top: calc(16px + env(safe-area-inset-top, 0px));
   transform: translate(-50%, -20px); opacity: 0; pointer-events: none;
-  background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: .92rem;
+  background: rgba(44, 44, 46, .82); color: var(--ink); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .7);
+  width: max-content; padding: 12px 20px; border-radius: 18px; font-weight: 600; font-size: .92rem;
   transition: opacity .2s, transform .2s; max-width: calc(100% - 32px); text-align: center;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
