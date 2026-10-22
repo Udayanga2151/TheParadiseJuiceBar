@@ -37,9 +37,9 @@ window.JUICE_BAR = {
     },
     // Live menu from Google Sheets (see guides/google-sheet-setup.md).
     // Paste the two "Publish to web" CSV links here. Leave "" to use the menu below.
-    sheet: {
-      menuCsv: "",
-      settingsCsv: ""
+        sheet: {
+      menuCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8-JZB3uUVjMqBk879tr7VOIVhhyo9GZ_vlmh466Csq42Wv-2V70xie5kau1klmRSL7IVwXOXD7CXF/pub?gid=1687855615&single=true&output=csv",
+      settingsCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8-JZB3uUVjMqBk879tr7VOIVhhyo9GZ_vlmh466Csq42Wv-2V70xie5kau1klmRSL7IVwXOXD7CXF/pub?gid=2011193222&single=true&output=csv"
     },
     options: {
       sugar: ["Normal sugar", "Less sugar", "No sugar"],
