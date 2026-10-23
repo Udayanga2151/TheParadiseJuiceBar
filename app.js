@@ -65,7 +65,7 @@
     $("shopTagline").textContent = SHOP.tagline;
     var words = SHOP.name.split(/\s+/).filter(function (w) { return w && !/^the$/i.test(w); });
     var initials = /^[A-Z0-9]{2,3}$/.test(words[0] || "") ? words[0] : words.slice(0, 2).map(function (w) { return w[0]; }).join("").toUpperCase();
-    $("logoText").textContent = initials || "JB";
+    if ($("logoText")) $("logoText").textContent = initials || "JB";
 
     var st = $("openStatus");
     var o = SHOP.hours.open.split(":").map(Number), c = SHOP.hours.close.split(":").map(Number);
