@@ -39,7 +39,8 @@ window.JUICE_BAR = {
     // Paste the two "Publish to web" CSV links here. Leave "" to use the menu below.
         sheet: {
       menuCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8-JZB3uUVjMqBk879tr7VOIVhhyo9GZ_vlmh466Csq42Wv-2V70xie5kau1klmRSL7IVwXOXD7CXF/pub?gid=1687855615&single=true&output=csv",
-      settingsCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8-JZB3uUVjMqBk879tr7VOIVhhyo9GZ_vlmh466Csq42Wv-2V70xie5kau1klmRSL7IVwXOXD7CXF/pub?gid=2011193222&single=true&output=csv"
+      settingsCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8-JZB3uUVjMqBk879tr7VOIVhhyo9GZ_vlmh466Csq42Wv-2V70xie5kau1klmRSL7IVwXOXD7CXF/pub?gid=2011193222&single=true&output=csv",
+      ordersUrl: "https://script.google.com/macros/s/AKfycbyeSgWwX_kLysXLbYhpDgVQx_jOPL_b2PBgV2e4vp4rAxBAhbDsUE2aoopB8lCfOVTBRg/exec"
     },
     options: {
       sugar: ["Normal sugar", "Less sugar", "No sugar"],

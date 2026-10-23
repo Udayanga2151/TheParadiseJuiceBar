@@ -403,6 +403,24 @@
     return "https://wa.me/" + String(SHOP.whatsapp).replace(/\D/g, "") + "?text=" + encodeURIComponent(buildMessage());
   }
 
+  // Saves a copy of the order to the "Orders" tab of the Google Sheet (see shop.sheet.ordersUrl).
+  function saveOrder() {
+    var url = (SHOP.sheet || {}).ordersUrl;
+    if (!url || !cart.length) return;
+    var items = cart.map(function (l) {
+      var p = byId[l.id], o = optsText(l);
+      return l.qty + " x " + p.name + (o ? " (" + o + ")" : "");
+    }).join(", ");
+    var where = form.type === "dine" ? (form.table ? "Table " + form.table : "Dine in") : "Takeaway";
+    fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      keepalive: true,
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ table: where, items: items, total: totals().sum })
+    }).catch(function () {});
+  }
+
   /* ---------- Footer ---------- */
   function renderFooter() {
     var links = [];
@@ -468,6 +486,7 @@
     if (t.id === "clearFilters") { filter = { q: "", goal: null }; $("search").value = ""; $("specials").hidden = false; $("goals").hidden = false; renderGoals(); renderMenu(); return; }
     if (t.id === "waBtn") {
       toast("Order sent to WhatsApp. Tap Send there ✓");
+      saveOrder();
       // The WhatsApp link already carries the order, so empty the cart for the next customer.
       setTimeout(function () { cart = []; save(); renderCartButton(); hideSheet(); }, 800);
     }
