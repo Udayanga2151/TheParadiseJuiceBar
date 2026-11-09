@@ -74,6 +74,8 @@
     var isOpen = !SHOP.closedToday && mins >= openM && mins < closeM;
     st.textContent = SHOP.closedToday ? "Closed today" : isOpen ? "Open now · closes " + clock(c) : "Closed · opens " + clock(o);
     st.classList.toggle("open", isOpen);
+    var dir = $("dirLink");
+    if (dir) { dir.hidden = !SHOP.mapUrl; if (SHOP.mapUrl) dir.href = SHOP.mapUrl; }
     var note = $("notice");
     if (note) { note.textContent = SHOP.notice || ""; note.hidden = !SHOP.notice; }
 
